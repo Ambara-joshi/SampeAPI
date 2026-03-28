@@ -7,9 +7,9 @@ trigger:
 - master
 
 pool:
-  name: SelfNewAgent
+  name: SelfHostedagents
   demands:
-  - Agent.Name -equals Agentnew
+  - Agent.Name -equals Testagent
 
 variables:
   solution: '**/*.sln'
