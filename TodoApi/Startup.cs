@@ -31,8 +31,8 @@ namespace TodoApi
 
             services.AddDbContext<TodoContext>(options =>
             {
-                options.UseInMemoryDatabase("TodoDB");
-                //options.UseSqlServer(Configuration.GetConnectionString("SqlConnection"));
+                //options.UseInMemoryDatabase("TodoDB");
+                options.UseSqlServer(Configuration.GetConnectionString("SqlConnection"));
             });
 
             services.AddSwaggerGen(config =>
@@ -43,6 +43,7 @@ namespace TodoApi
                     Description = "Todo API operations",
                     Version="1.0"
                 });
+                config.ResolveConflictingActions(apiDescriptions => apiDescriptions.First()); //This line
             });
 
             services.AddCors(config =>
