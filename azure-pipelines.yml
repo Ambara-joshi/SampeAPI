@@ -7,9 +7,7 @@ trigger:
 - master
 
 pool:
- name: SelfNewAgent
-  demands:
-  - Agent.Name -equals Agentnew
+ vmImage: 'windows-latest'
 
 variables:
   solution: '**/*.sln'
