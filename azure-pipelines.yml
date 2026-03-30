@@ -7,9 +7,7 @@ trigger:
 - master
 
 pool:
- name: SelfNewAgent
-  demands:
-  - Agent.Name -equals Agentnew
+ vmImage: 'windows-latest'
 
 variables:
   solution: '**/*.sln'
@@ -34,3 +32,9 @@ steps:
   inputs:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+# - task: Docker@2
+#   inputs:
+#     containerRegistry: 'Docker-Connection'
+#     repository: 'sampleapi'
+#     command: 'buildAndPush'
+#     Dockerfile: '**/Dockerfile'
